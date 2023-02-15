@@ -1,22 +1,10 @@
 const express = require('express');
 const app = express();
 const operaciones = require('./operaciones')
-const bodyParser = require('body-parser');
-
-app.use(express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
   res.send('Api Calculadora');
 })
-
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.post('/index', (req, res) => {
-  let result = req.body.resultado;
-  console.log(result);
-  res.send(result);
-})
-
 
 app.get('/suma/:num1/:num2', function (req, res) {
   var num1 = parseFloat(req.params.num1);
